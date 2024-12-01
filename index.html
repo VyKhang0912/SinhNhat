@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Sinh Nhật</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #ffb6c1; /* Màu hồng nhạt */
+            overflow: hidden;
+        }
+
+        .balloons {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: -150px;
+            width: 80px;
+            height: 120px;
+            background-color: rgba(255, 0, 0, 0.7);
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .balloon:nth-child(2) {
+            background-color: rgba(0, 255, 0, 0.7);
+            width: 100px;
+            left: 20%;
+            animation-delay: 1s;
+        }
+
+        .balloon:nth-child(3) {
+            background-color: rgba(0, 0, 255, 0.7);
+            width: 90px;
+            left: 50%;
+            animation-delay: 2s;
+        }
+
+        .balloon:nth-child(4) {
+            background-color: rgba(255, 255, 0, 0.7);
+            width: 85px;
+            left: 80%;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0);
+            }
+            50% {
+                transform: translateY(-200px) rotate(10deg);
+            }
+            100% {
+                transform: translateY(-1000px) rotate(-10deg);
+            }
+        }
+
+        .envelope-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .envelope {
+            width: 150px;
+            height: 100px;
+            background: #fff;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .envelope:before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #ff7f7f;
+            clip-path: polygon(0 100%, 50% 0, 100% 100%);
+        }
+
+        .cake {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 150px;
+            background: #fff;
+            border: 5px solid #fdd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .cake .candle {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 50px;
+            background: #ff6347;
+            border-radius: 5px;
+        }
+
+        .cake .flame {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 20px;
+            background: radial-gradient(circle, yellow 60%, orange 100%);
+            border-radius: 50%;
+            animation: flicker 0.5s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        .message {
+            display: none;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .message-content {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="balloons">
+        <div class="balloon" style="left: 10%;"></div>
+        <div class="balloon" style="left: 25%;"></div>
+        <div class="balloon" style="left: 70%;"></div>
+        <div class="balloon" style="left: 85%;"></div>
+    </div>
+
+    <div class="envelope-container" onclick="openEnvelope()">
+        <div class="envelope"></div>
+        <p>Ấn vào phong bì</p>
+    </div>
+
+    <div class="cake">
+        <div class="candle">
+            <div class="flame"></div>
+        </div>
+        <p style="margin-top: 60px; font-size: 14px; color: #333;">🎂 Happy Birthday 🎂</p>
+    </div>
+
+    <div class="message" id="message">
+        <p class="message-content">
+            <p><strong>Dear Em,</strong></p>
+    <p>Hôm nay anh viết bức thư này vào ngày 1 tháng 12. Hông biết em đọc nó vào ngày 1 hay ngày 2 ta? Em biết ngày mai là ngày gì hong, là ngày mà người yêu siêu dễ thương và siêu xinh đẹp của anh được sinh ra đó! Anh chúc em tuổi mới ngày càng xinh đẹp và học giỏi hơn nè, đặc biệt là bớt quạo với anh hay mọi người lại😡 vì quạo nhiều là già, xấu đi đó, mong cho em luôn hạnh phúc và đạt được những điều mà em mong ước, đặc biệt là được làm người mẫu và sớm mở một tiệm bánh ngọt nhỏ (làm riêng cho anh ăn thôi được hem? =))).</p>
+    <p>Giờ tâm sự tí nhé, đây cũng là lần đầu anh viết thư cho một ai đó (hong có copy cưng đâu à). Lúc đầu quen nhau, anh cứ sợ sẽ mau chán vì anh cũng có kể với em là anh hay dễ chán, nhưng mà không, anh tìm đúng người rồi và người đó là em. Anh cảm thấy rất hạnh phúc khi được gặp và quen em (ôi không, đang viết mà anh lỡ khóc rồi, xin lỗi nha anh hơi xúc động =))).</p>
+    <p>Nhiều lúc hay buồn mà anh gặp hoặc call video với em là anh vui hết buồn liền, cũng có lúc buồn thêm tại em quạo dí anh huhu. Cảm ơn em vì đã đồng ý quen anh, anh thật sự rất hạnh phúc và cũng xin lỗi vì nhiều cái làm em bực tại anh ngu thiệt =). Hihi và anh viết tới đây thôi, còn nhiều mà anh hông biết sao để kể hết, thôi thì tối mình ib kín nhé =) I Love You So Muchhh <3</p>
+    <p><strong>KhangTieu</strong></p>
+  </div>
+</div>
+
+    <script>
+        function openEnvelope() {
+            document.getElementById('message').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
