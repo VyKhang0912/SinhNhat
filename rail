@@ -38,7 +38,7 @@ def playfair_encrypt():
     text = request.form['inputPlainText']
     key = request.form['inputKeyPlain']
     Playfair = PlayFairCipher()
-    encrypted_text = Playfair.encrypt_text(text, key)
+    encrypted_text = Playfair.playfair_encrypt(text, key)
     return f"text: {text}<br/>key: {key}<br/>encrypted text: {encrypted_text}"
 
 @app.route("/playfair/decrypt", methods=['POST'])
@@ -46,7 +46,7 @@ def playfair_decrypt():
     text = request.form['inputCipherText']
     key = request.form['inputKeyCipher']
     Playfair = PlayFairCipher()
-    decrypted_text = Playfair.decrypt_text(text, key)
+    decrypted_text = Playfair.playfair_decrypt(text, key)
     return f"text: {text}<br/>key: {key}<br/>decrypted text: {decrypted_text}"
 
 #railfence
