@@ -1,0 +1,25 @@
+#playfair
+@app.route("/playfair")
+def playfair():
+    return render_template('playfair.html')
+
+@app.route("/playfair/encrypt", methods=['POST'])
+def playfair_encrypt():
+    text = request.form['inputPlainText']
+    key = request.form['inputKeyPlain']
+    Playfair = PlayfairCipher()
+    encrypted_text = Playfair.encrypt_text(text, key)
+    return f"text: {text}<br/>key: {key}<br/>encrypted text: {encrypted_text}"
+
+@app.route("/playfair/decrypt", methods=['POST'])
+def playfair_decrypt():
+    text = request.form['inputCipherText']
+    key = request.form['inputKeyCipher']
+    Playfair = PlayfairCipher()
+    decrypted_text = Playfair.decrypt_text(text, key)
+    return f"text: {text}<br/>key: {key}<br/>decrypted text: {decrypted_text}"
+
+
+from cipher.playfair import PlayfairCipher
+
+<form method="POST" action="/playfair/encrypt">
