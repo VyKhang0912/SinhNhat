@@ -1,0 +1,17 @@
+plain_text = plain_text.upper().replace("J", "I")
+plain_text = ''.join(filter(str.isalpha, plain_text))
+
+
+
+row1, col1 = self.find_letter_coords(matrix, pair[0])
+row2, col2 = self.find_letter_coords(matrix, pair[1])
+
+
+coords1 = self.find_letter_coords(matrix, pair[0])
+coords2 = self.find_letter_coords(matrix, pair[1])
+
+if coords1 is None or coords2 is None:
+    continue  # bỏ qua ký tự lỗi
+
+row1, col1 = coords1
+row2, col2 = coords2
